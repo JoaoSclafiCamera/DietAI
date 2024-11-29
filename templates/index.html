@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Recommendation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eaf6ea; /* Verde claro no fundo */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #2a7f2e; /* Verde escuro */
+            margin-bottom: 20px;
+        }
+
+        .chat-box {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .chat-box div {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .bot, .user {
+            padding: 10px 15px;
+            border-radius: 8px;
+            max-width: 70%;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .bot {
+            background-color: #2a7f2e; /* Verde escuro */
+            color: white;
+            align-self: flex-start;
+            position: relative;
+            display: inline-block;
+        }
+
+        .user {
+            background-color: #f1f1f1;
+            color: black;
+            align-self: flex-end;
+            position: relative;
+            display: inline-block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #2a7f2e; /* Verde escuro */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #236b28; /* Verde mais escuro para hover */
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Caminho relativo para a logo -->
+        <img src="images/logo.png" alt="DietAI Logo" class="logo">
+        
+        <h1>Diet Recommendation</h1>
+        
+        <div class="chat-box" id="chat-box">
+            <div class="bot">Hi! I'm your DietAI Assistant. Let's get started with your diet recommendation.</div>
+        </div>
+        
+        <form action="/recommend" method="post" id="diet-form" class="form-container">
+            <div class="chat-box">
+                <div class="user">Please tell me your weight (kg):</div>
+            </div>
+            <input type="text" id="weight" name="weight" required><br>
+
+            <div class="chat-box">
+                <div class="user">What is your height (m)?</div>
+            </div>
+            <input type="text" id="height" name="height" required><br>
+
+            <div class="chat-box">
+                <div class="user">How old are you?</div>
+            </div>
+            <input type="text" id="age" name="age" required><br>
+
+            <div class="chat-box">
+                <div class="user">What is your sex (male/female)?</div>
+            </div>
+            <input type="text" id="sex" name="sex" required><br>
+
+            <div class="chat-box">
+                <div class="user">What is your activity level (e.g., sedentary, active)?</div>
+            </div>
+            <input type="text" id="activity_level" name="activity_level" required><br>
+
+            <div class="chat-box">
+                <div class="user">What is your goal (lose weight/gain weight/maintain weight)?</div>
+            </div>
+            <input type="text" id="goal" name="goal" required><br>
+
+            <input type="submit" value="Get Recommendation">
+        </form>
+    </div>
+</body>
+</html>

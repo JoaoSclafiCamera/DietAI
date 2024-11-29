@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Meal Plan</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eaf6ea; /* Verde claro no fundo */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            width: 90%;
+            max-width: 700px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #2a7f2e; /* Cor verde escuro */
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #2a7f2e;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2a7f2e; /* Verde escuro */
+            color: white;
+            font-size: 18px;
+        }
+
+        td {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .go-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2a7f2e;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .go-back:hover {
+            background-color: #236b28; /* Verde escuro para hover */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/logo.png" alt="DietAI Logo" class="logo">
+        <h1>Your Meal Plan</h1>
+        <p>Your daily caloric goal is approximately {{ daily_calories | round(2) }} calories.</p>
+
+        <h2>Meal Recommendations:</h2>
+        <table>
+            <tr>
+                <th>Meal</th>
+                <th>Suggestion</th>
+                <th>Calories</th>
+            </tr>
+            <tr>
+                <td><strong>Breakfast</strong></td>
+                <td>{{ recommendations['breakfast']['suggestion'] }}</td>
+                <td>~{{ recommendations['breakfast']['calories'] }} calories</td>
+            </tr>
+            <tr>
+                <td><strong>Lunch</strong></td>
+                <td>{{ recommendations['lunch']['suggestion'] }}</td>
+                <td>~{{ recommendations['lunch']['calories'] }} calories</td>
+            </tr>
+            <tr>
+                <td><strong>Dinner</strong></td>
+                <td>{{ recommendations['dinner']['suggestion'] }}</td>
+                <td>~{{ recommendations['dinner']['calories'] }} calories</td>
+            </tr>
+            <tr>
+                <td><strong>Snack</strong></td>
+                <td>{{ recommendations['snack']['suggestion'] }}</td>
+                <td>~{{ recommendations['snack']['calories'] }} calories</td>
+            </tr>
+        </table>
+
+        <a href="/" class="go-back">Go back</a>
+    </div>
+</body>
+</html>
